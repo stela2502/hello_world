@@ -23,4 +23,20 @@ fn main() {
     for bit in sv2.into_u64().to_le_bytes() {
         println!( "{:#64b}", bit );
     }
+
+    println!("Now I read our test fastq database to create the indices");
+
+    let mut genes:GeneIds = GeneIds::new(32); 
+
+    /*
+    >Cd3e|ENSMUST00000102832.1|chr9:44998738 site_id: user_seq_28_project_mouseImmune, AMPLICON
+    ACAGGTCCTGCCCCATTTATAGATCCTGGCCCAGCCCCTGCCACAGGTGCCTCTCCAGAT
+    TTCCCCTTAGATCCTCGGATGGTCATCTCCATCTCCATGAATACACCAGCCCCCTCTCTG
+    CTAATGCAAAAGGCAATAAAGTGTATTGGCTGG
+    */
+    genes.add( b"ACAGGTCCTGCCCCATTTATAGATCCTGGCCCAGCCCCTGCCACAGGTGCCTCTCCAGATTTCCCCTTAGATCCTCGGATGGTCATCTCCATCTCCATGAATACACCAGCCCCCTCTCTGCTAATGCAAAAGGCAATAAAGTGTATTGGCTGG", "Cd3e".to_string() );
+
+
+
+
 }
